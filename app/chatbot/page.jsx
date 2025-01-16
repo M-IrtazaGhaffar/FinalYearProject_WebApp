@@ -44,6 +44,7 @@ function page() {
             borderTopRightRadius={15}
             borderBottomLeftRadius={15}
             alignSelf={"flex-end"}
+            className="shadow-customShadow"
           >
             <Text fontSize={"xs"} fontWeight={"thin"} textAlign={"right"}>
               User (You)
@@ -60,6 +61,7 @@ function page() {
             borderTopLeftRadius={15}
             borderTopRightRadius={15}
             borderBottomRightRadius={15}
+            className="shadow-customShadow"
           >
             <Text fontSize={"xs"} fontWeight={"thin"}>
               Chatbot
@@ -77,6 +79,7 @@ function page() {
             borderTopRightRadius={15}
             borderBottomLeftRadius={15}
             alignSelf={"flex-end"}
+            className="shadow-customShadow"
           >
             <Text fontSize={"xs"} fontWeight={"thin"} textAlign={"right"}>
               User (You)
@@ -93,6 +96,7 @@ function page() {
             borderTopLeftRadius={15}
             borderTopRightRadius={15}
             borderBottomRightRadius={15}
+            className="shadow-customShadow"
           >
             <Text fontSize={"xs"} fontWeight={"thin"}>
               Chatbot

@@ -7,7 +7,7 @@ function page() {
   return (
     <Box px={4} pb={16}>
       <AppShowHeadBox
-        heading={"Organizations"}
+        heading={"Retailers"}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ function page() {
             <path d="M2 11h1v1H2zm2 0h1v1H4zm-2 2h1v1H2zm2 0h1v1H4zm4-4h1v1H8zm2 0h1v1h-1zm-2 2h1v1H8zm2 0h1v1h-1zm2-2h1v1h-1zm0 2h1v1h-1zM8 7h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zM8 5h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zm0-2h1v1h-1z" />
           </svg>
         }
-        detail={"Here are the organizations registered in our system."}
+        detail={"Here are the registered retailers in our system."}
       />
       <Flex
         py={4}
@@ -38,10 +38,10 @@ function page() {
           w={{ base: "100%", md: "30vw" }}
           className="shadow-customShadow"
         >
-          <Link href={"/organizations/1"}>
+          <Link href={"/retailers/1"}>
             <Card.Header>
               <Heading fontSize="lg" color={"#199A8E"}>
-                Organization Name
+                Retailer Name
               </Heading>
             </Card.Header>
             <Card.Body color="fg.muted" fontSize={"xs"}>
