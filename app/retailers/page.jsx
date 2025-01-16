@@ -1,6 +1,6 @@
+import AppInfoCard from "@/components/app/AppInfoCard";
 import AppShowHeadBox from "@/components/app/AppShowHeadBox";
-import { Box, Card, Flex, Heading, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box, Card, Flex } from "@chakra-ui/react";
 import React from "react";
 
 function page() {
@@ -30,27 +30,7 @@ function page() {
         alignItems={"center"}
         gap={4}
       >
-        <Card.Root
-          size="md"
-          bg={"white"}
-          color={"black"}
-          border={"1px solid #eaeaea"}
-          w={{ base: "100%", md: "30vw" }}
-          className="shadow-customShadow"
-        >
-          <Link href={"/retailers/1"}>
-            <Card.Header>
-              <Heading fontSize="lg" color={"#199A8E"}>
-                Retailer Name
-              </Heading>
-            </Card.Header>
-            <Card.Body color="fg.muted" fontSize={"xs"}>
-              <Text fontSize={"xs"}>Phone</Text>
-              <Text fontSize={"xs"}>Email</Text>
-              <Text fontSize={"sm"}>Address</Text>
-            </Card.Body>
-          </Link>
-        </Card.Root>
+        <AppInfoCard owner={"M Irtaza Ghaffar"} name={"MediCare 24/7"} phone={"+923320523524"} email={"irtazaghaffar@gmail.com"} address={"Mozzam Hospital Jhelum"} link={"/retailers/1"} />
       </Flex>
     </Box>
   );

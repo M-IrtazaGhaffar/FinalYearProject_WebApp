@@ -1,6 +1,6 @@
+import AppProductCard from "@/components/app/AppProductCard";
 import AppShowHeadBox from "@/components/app/AppShowHeadBox";
-import { Box, Card, Flex, Heading, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 
 function page() {
@@ -29,26 +29,12 @@ function page() {
         alignItems={"center"}
         gap={4}
       >
-        <Card.Root
-          size="md"
-          bg={"white"}
-          color={"black"}
-          border={"1px solid #eaeaea"}
-          w={{ base: "100%", md: "30vw" }}
-          className="shadow-customShadow"
-        >
-          <Link href={"/products/1"}>
-            <Card.Header>
-              <Heading fontSize="lg" color={"#199A8E"}>
-                Product Name
-              </Heading>
-            </Card.Header>
-            <Card.Body color="fg.muted" fontSize={"xs"}>
-              <Text fontSize={"xs"}>Product Formula</Text>
-              <Text fontSize={"sm"}>Organization Name</Text>
-            </Card.Body>
-          </Link>
-        </Card.Root>
+        <AppProductCard
+          name={"Capotin"}
+          formula={"Capiton-261Ho"}
+          organization={"XYZ Pharmasists"}
+          link={"/products/1"}
+        />
       </Flex>
     </Box>
   );

@@ -32,7 +32,13 @@ function page() {
         alignItems={"center"}
         gap={4}
       >
-        <Flex flexDir={"column"} gap={2} w={'100%'} justifyContent={"space-between"}>
+        <Flex
+          flexDir={"column"}
+          gap={2}
+          w={"100%"}
+          justifyContent={"space-between"}
+          pb={16}
+        >
           <Box
             p={4}
             bg={"gray.100"}
@@ -49,7 +55,10 @@ function page() {
             <Text fontSize={"xs"} fontWeight={"thin"} textAlign={"right"}>
               User (You)
             </Text>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, minima.</Text>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+              minima.
+            </Text>
           </Box>
           <Box
             p={4}
@@ -66,7 +75,14 @@ function page() {
             <Text fontSize={"xs"} fontWeight={"thin"}>
               Chatbot
             </Text>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolore ipsam maxime? Exercitationem quam molestiae nobis eligendi ullam aliquid, consequatur velit, iste eos iure quod quia voluptatibus aut vero qui debitis fugiat eveniet ratione cupiditate iusto delectus est harum fuga quasi? Magnam laborum architecto sunt saepe eaque itaque a repellendus.</Text>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+              dolore ipsam maxime? Exercitationem quam molestiae nobis eligendi
+              ullam aliquid, consequatur velit, iste eos iure quod quia
+              voluptatibus aut vero qui debitis fugiat eveniet ratione
+              cupiditate iusto delectus est harum fuga quasi? Magnam laborum
+              architecto sunt saepe eaque itaque a repellendus.
+            </Text>
           </Box>
           <Box
             p={4}
@@ -84,7 +100,10 @@ function page() {
             <Text fontSize={"xs"} fontWeight={"thin"} textAlign={"right"}>
               User (You)
             </Text>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, minima.</Text>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+              minima.
+            </Text>
           </Box>
           <Box
             p={4}
@@ -101,19 +120,36 @@ function page() {
             <Text fontSize={"xs"} fontWeight={"thin"}>
               Chatbot
             </Text>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolore ipsam maxime? Exercitationem quam molestiae nobis eligendi ullam aliquid, consequatur velit, iste eos iure quod quia voluptatibus aut vero qui debitis fugiat eveniet ratione cupiditate iusto delectus est harum fuga quasi? Magnam laborum architecto sunt saepe eaque itaque a repellendus.</Text>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+              dolore ipsam maxime? Exercitationem quam molestiae nobis eligendi
+              ullam aliquid, consequatur velit, iste eos iure quod quia
+              voluptatibus aut vero qui debitis fugiat eveniet ratione
+              cupiditate iusto delectus est harum fuga quasi? Magnam laborum
+              architecto sunt saepe eaque itaque a repellendus.
+            </Text>
           </Box>
         </Flex>
-        <Flex gap={2} w={'100%'} justifyContent={"center"} alignItems={"center"}>
-        <Input
-          p={4}
-          bg={"gray.50"}
-          border={"1px solid"}
-          borderColor={"gray.200"}
-          placeholder={"Type your query here..."}
-          w={"85vw"}
-        />
-        <Button variant="surface" p={4} >Send</Button>
+        <Flex
+          gap={2}
+          w={"100%"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          position={"fixed"}
+          bottom={'70px'}
+          mx={'2'}
+        >
+          <Input
+            p={4}
+            bg={"gray.50"}
+            border={"1px solid"}
+            borderColor={"gray.200"}
+            placeholder={"Type your query here..."}
+            w={"85vw"}
+          />
+          <Button variant="surface" p={4}>
+            Send
+          </Button>
         </Flex>
       </Flex>
     </Box>
