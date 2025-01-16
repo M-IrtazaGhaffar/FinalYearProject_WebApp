@@ -26,6 +26,7 @@ function page() {
         chatbot.
       </Text>
       <Flex
+
         py={4}
         wrap={"wrap"}
         justifyContent={"center"}
@@ -132,12 +133,15 @@ function page() {
         </Flex>
         <Flex
           gap={2}
-          w={"100%"}
+          className="shadow-customShadow"
+          w={"90%"}
           justifyContent={"center"}
           alignItems={"center"}
           position={"fixed"}
-          bottom={'70px'}
-          mx={'2'}
+          bottom={'60px'}
+          bg={'white'}
+          p={2}
+          borderRadius={'xl'}
         >
           <Input
             p={4}
