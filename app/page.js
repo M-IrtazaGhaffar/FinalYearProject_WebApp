@@ -1,10 +1,14 @@
+import Home from '@/components/app/Home'
+import Search from '@/components/app/Search'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 function page() {
-  // throw new Error("Simulated error!");
   return (
-    <div>
-    </div>
+    <Box>
+      <Search />
+      <Home />
+    </Box>
   )
 }
 
