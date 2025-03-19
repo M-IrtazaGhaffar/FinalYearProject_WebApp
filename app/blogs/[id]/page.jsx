@@ -3,7 +3,18 @@ import AppShowHeadBox from "@/components/app/AppShowHeadBox";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 
-function page() {
+async function page({ params }) {
+  const p = await params;
+
+  const res = await fetch("http://13.203.196.191:8000/api/blog/getbyid", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id: p.id }),
+  });
+
+  const data = await res.json();
   return (
     <Flex px={4} pb={16} flexDirection={"column"} gap={4}>
       <AppShowHeadBox
@@ -28,14 +39,14 @@ function page() {
         }
       />
       <AppBlogDetailCard
-        title={"Why Not to Use Capoten?"}
-        description={
-          "Capoten (Captopril) may not be the right choice for all patients due to specific health conditions, potential side effects, or interactions with other medications."
-        }
-        details={
-          "Capoten (Captopril) may not be suitable for certain individuals due to various health and safety concerns. Patients allergic to ACE inhibitors should avoid this medication, as it can cause severe allergic reactions, including swelling, difficulty breathing, and skin issues. Pregnant women should not use Capoten, as it poses significant risks to the developing fetus, particularly in the second and third trimesters. Individuals with kidney impairment or those undergoing dialysis may experience adverse effects, as the medication can strain kidney function. Additionally, Capoten can raise potassium levels in the blood, leading to hyperkalemia, which is especially dangerous for individuals with conditions like Addisons disease or those taking potassium-sparing drugs. Persistent dry cough, a common side effect, can make the drug intolerable for some patients. Furthermore, Capoten interacts with NSAIDs, diuretics, and other medications, potentially leading to complications. Careful assessment by a healthcare provider is crucial before starting Capoten."
-        }
-        organization={"XYZ Pharmaceuticals"}
+        title={data.data.title}
+        description={data.data.description}
+        details={data.data.details}
+        date={data.data.updatedAt}
+        organization={data.data.organization.name}
+        email={data.data.organization.email}
+        phone={data.data.organization.phone}
+        address={data.data.organization.address}
       />
     </Flex>
   );

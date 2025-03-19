@@ -14,7 +14,9 @@ function AppInfoCard({ name, owner, phone, email, address, link }) {
     >
       <Link href={link}>
         <Card.Header>
-        <Text fontSize={"xs"} color={'gray.500'}>By {owner}</Text>
+          <Text fontSize={"xs"} color={"gray.500"}>
+            By {owner}
+          </Text>
           <Heading fontSize="lg" color={"#199A8E"}>
             {name}
           </Heading>

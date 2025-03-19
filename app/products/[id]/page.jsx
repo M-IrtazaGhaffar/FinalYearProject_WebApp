@@ -2,7 +2,23 @@ import AppShowHeadBox from "@/components/app/AppShowHeadBox";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 
-function page() {
+async function page({ params }) {
+
+  const p = await params;
+
+  const res = await fetch(
+    "http://13.203.196.191:8000/api/product/getbyid",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: p.id }),
+    }
+  );
+  
+  const data = await res.json();
+
   return (
     <Flex px={4} pb={16} flexDirection={"column"} gap={4}>
       <AppShowHeadBox
@@ -27,14 +43,20 @@ function page() {
         <Text fontSize={"xs"} fontWeight={"thin"}>
           Reg ID
         </Text>
-        <Text>(12345)</Text>
+        <Text>{data.data.id}</Text>
       </Box>
       <hr />
       <Box gap={4}>
         <Text fontSize={"xs"} fontWeight={"thin"}>
           Name
         </Text>
-        <Text>Capotin 5/10mg</Text>
+        <Text>{data.data.name}</Text>
+      </Box>
+      <Box gap={4}>
+        <Text fontSize={"xs"} fontWeight={"thin"}>
+          Formula
+        </Text>
+        <Text>{data.data.formula}</Text>
       </Box>
       <hr />
       <Box gap={4}>
@@ -42,7 +64,7 @@ function page() {
           Description
         </Text>
         <Text>
-          An ACE inhibitor used to treat hypertension and heart failure.
+         {data.data.description}
         </Text>
       </Box>
       <hr />
@@ -51,9 +73,7 @@ function page() {
           Detail
         </Text>
         <Text>
-          Captopril is a medication belonging to the class of ACE inhibitors. It
-          works by relaxing blood vessels, which lowers blood pressure and
-          improves blood flow, reducing the workload on the heart.
+          {data.data.detail}
         </Text>
       </Box>
       <hr />
@@ -62,9 +82,7 @@ function page() {
           Consumption
         </Text>
         <Text>
-          Take 25-150 mg per day in divided doses as prescribed by your
-          healthcare provider. Best taken on an empty stomach one hour before
-          meals.
+          {data.data.consumption}
         </Text>
       </Box>
       <hr />
@@ -73,10 +91,7 @@ function page() {
           Side Effects
         </Text>
         <Text>
-          Dizziness, lightheadedness, cough, altered taste sensation, or rash.
-          Severe side effects may include swelling, difficulty breathing, or
-          signs of high potassium levels such as muscle weakness or irregular
-          heartbeat.
+          {data.data.sideeffects}
         </Text>
       </Box>
       <hr />
@@ -85,17 +100,33 @@ function page() {
           Others
         </Text>
         <Text>
-          Not recommended for use during pregnancy. Monitor kidney function and
-          potassium levels regularly while on this medication. Avoid potassium
-          supplements or potassium-rich diets unless directed by your doctor.
+         {data.data.other}
         </Text>
       </Box>
       <hr />
       <Box gap={4}>
         <Text fontSize={"xs"} fontWeight={"thin"}>
-          Organization
+          Organization Name
         </Text>
-        <Text>XYZ Pharmaceuticals</Text>
+        <Text>{data.data.retailer.name}</Text>
+      </Box>
+      <Box gap={4}>
+        <Text fontSize={"xs"} fontWeight={"thin"}>
+          Organization Email
+        </Text>
+        <Text>{data.data.retailer.email}</Text>
+      </Box>
+      <Box gap={4}>
+        <Text fontSize={"xs"} fontWeight={"thin"}>
+          Organization Phone
+        </Text>
+        <Text>{data.data.retailer.phone}</Text>
+      </Box>
+      <Box gap={4}>
+        <Text fontSize={"xs"} fontWeight={"thin"}>
+          Organization Address
+        </Text>
+        <Text>{data.data.retailer.address}</Text>
       </Box>
     </Flex>
   );

@@ -3,7 +3,15 @@ import AppShowHeadBox from "@/components/app/AppShowHeadBox";
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 
-function page() {
+async function page() {
+  const res = await fetch("http://13.203.196.191:8000/api/blog/get", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+
   return (
     <Box px={4} pb={16}>
       <AppShowHeadBox
@@ -34,12 +42,17 @@ function page() {
         alignItems={"center"}
         gap={4}
       >
-        <AppBlogCard
-          title={"Why not to use Panadol?"}
-          date={"19-10-2023"}
-          organization={"Abbott"}
-          link={"/blogs/1"}
-        />
+        {data.data.map((blog, index) => {
+          return (
+            <AppBlogCard
+              title={blog.title}
+              date={blog.updatedAt}
+              organization={blog.organization.name}
+              link={`/blogs/${blog.id}`}
+              key={index}
+            />
+          );
+        })}
       </Flex>
     </Box>
   );

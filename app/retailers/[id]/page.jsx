@@ -3,7 +3,23 @@ import AppShowHeadBox from "@/components/app/AppShowHeadBox";
 import { Box } from "@chakra-ui/react";
 import React from "react";
 
-function page() {
+async function page({ params }) {
+
+  const p = await params;
+
+  const res = await fetch(
+    "http://13.203.196.191:8000/api/retailer/getbyid",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: p.id }),
+    }
+  );
+  
+  const data = await res.json();
+
   return (
     <Box px={4} pb={16} gap={4}>
       <AppShowHeadBox
@@ -24,27 +40,27 @@ function page() {
           "Here are the information and details about the retailers registered in our system."
         }
       />
-      <AppShowBox name={"Reg ID"} value={"12345"} />
+      <AppShowBox name={"Reg ID"} value={data.data.id} />
       <hr />
-      <AppShowBox name={"Name"} value={"MediCare 24/7"} />
+      <AppShowBox name={"Name"} value={data.data.name} />
       <hr />
-      <AppShowBox name={"Owner"} value={"M Irtaza Ghaffar"} />
+      <AppShowBox name={"Owner"} value={data.data.owner} />
       <hr />
-      <AppShowBox name={"Email"} value={"irtazaghaffar@gmail.com"} />
+      <AppShowBox name={"Email"} value={data.data.email} />
       <hr />
-      <AppShowBox name={"Phone"} value={"+923320523524"} />
+      <AppShowBox name={"Phone"} value={data.data.phone} />
       <hr />
-      <AppShowBox name={"CNIC"} value={"37301-0823191-3"} />
+      <AppShowBox name={"National ID"} value={data.data.national_id} />
       <hr />
-      <AppShowBox name={"Country"} value={"Pakistan"} />
+      <AppShowBox name={"Country"} value={data.data.country} />
       <hr />
-      <AppShowBox name={"License"} value={"DPharm-PUN-2025-012345"} />
+      <AppShowBox name={"License"} value={data.data.license} />
       <hr />
-      <AppShowBox name={"Address"} value={"Mozzam Hospital Jhelum"} />
+      <AppShowBox name={"Address"} value={data.data.address} />
       <hr />
-      <AppShowBox name={"Latitude"} value={"73.18626952080118"} />
+      <AppShowBox name={"Latitude"} value={data.data.latitude} />
       <hr />
-      <AppShowBox name={"Longitude"} value={"33.54824734241191"} />
+      <AppShowBox name={"Longitude"} value={data.data.longitude} />
     </Box>
   );
 }

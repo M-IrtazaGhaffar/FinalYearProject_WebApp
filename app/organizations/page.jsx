@@ -3,7 +3,16 @@ import AppShowHeadBox from "@/components/app/AppShowHeadBox";
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 
-function page() {
+async function page() {
+
+  const res = await fetch("http://13.203.196.191:8000/api/organization/get", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+  
   return (
     <Box px={4} pb={16}>
       <AppShowHeadBox
@@ -30,14 +39,19 @@ function page() {
         alignItems={"center"}
         gap={4}
       >
-        <AppInfoCard
-          owner={"M Irtaza Ghaffar"}
-          name={"MediCare 24/7"}
-          phone={"+923320523524"}
-          email={"irtazaghaffar@gmail.com"}
-          address={"Mozzam Hospital Jhelum"}
-          link={"/retailers/1"}
-        />
+        {
+          data.data.map((item, index) => {
+            return <AppInfoCard
+            owner={item.owner}
+            name={item.name}
+            phone={item.phone}
+            email={item.email}
+            address={item.address}
+            link={`/organizations/${item.id}`}
+            key={index}
+          />
+          })
+        }
       </Flex>
     </Box>
   );
