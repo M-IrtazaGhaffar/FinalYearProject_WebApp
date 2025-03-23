@@ -6,7 +6,7 @@ function Search() {
     <Box
       flex={1}
       px={3}
-      mx={3}
+      m={3}
       display="flex"
       gap={3}
       alignItems="center"
@@ -15,7 +15,7 @@ function Search() {
       borderRadius="md" // Use Chakra's borderRadius
     >
       <Input
-        placeholder="Search Products, Blogs, Org. etc" // Add a placeholder for better UX
+        placeholder="Search Nearby Products" // Add a placeholder for better UX
         _focus={{ outline: "none" }} // Use Chakra's _focus instead of Tailwind's onfocus
       />
       <Button colorScheme="blue">
@@ -29,7 +29,7 @@ function Search() {
         >
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
-      </Button>{" "}
+      </Button>
       {/* Add a color scheme for better styling */}
     </Box>
   );
