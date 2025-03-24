@@ -16,7 +16,7 @@ function WelcomeLine() {
     greeting = "Good evening";
   }
 
-  return <Heading fontWeight={'semibold'} fontSize={'2xl'} my={5} color={'#199A8E'}>{greeting} there!</Heading>;
+  return <Heading fontWeight={'semibold'} fontSize={'2xl'} mt={5} color={'#199A8E'}>{greeting} there!</Heading>;
 }
 
 export default WelcomeLine;
