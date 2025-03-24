@@ -3,7 +3,7 @@ import React from "react";
 
 function Search() {
   return (
-    <Box className="p-5 lg:p-10">
+    <Box className="px-5 py-3 lg:p-10">
       <Text fontSize={"xs"}>
         Search Any Product Nearby
       </Text>
