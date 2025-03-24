@@ -15,7 +15,7 @@ async function AppHomeFetch() {
 
   return (
     <Box className="space-y-3">
-      <Text fontWeight={"semibold"}>Recently Added by Us</Text>
+      <Text fontWeight={"semibold"} fontSize={'xl'}>Recently Added by Us</Text>
       <Box>
         <Text fontSize={"xs"}>Products</Text>
         <Flex direction="row" overflowX="scroll" className="scrollbar-hide">

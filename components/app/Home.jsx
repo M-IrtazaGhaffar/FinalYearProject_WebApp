@@ -10,9 +10,9 @@ function Home() {
   return (
     <Box px={4} pb={16}>
       <WelcomeLine />
-      {/* <CurrentLocation /> */}
-      <AppHomeCards />
+      <CurrentLocation />
       <SearchNearby />
+      <AppHomeCards />
       <AppHomeFetch />
     </Box>
   );

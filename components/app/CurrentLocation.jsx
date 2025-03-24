@@ -55,6 +55,10 @@ function CurrentLocation() {
     }
   }, []);
 
+  if (!location.area) {
+    return null;
+  }
+
   return (
     <Card.Root
       size="md"
