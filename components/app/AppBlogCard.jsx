@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 function AppBlogCard({ title, date, organization, link }) {
-  console.log(date);
   
   return (
     <Card.Root

@@ -1,12 +1,10 @@
 "use client"
-import { Flex } from '@chakra-ui/react'
+import AppError from '@/components/app/AppError'
 import React from 'react'
 
 function error() {
   return (
-    <Flex justifyContent="center" alignItems="center" h="100vh">
-        <Text>Sorry for Inconvinence. | Some Error Occured!</Text>
-    </Flex>
+    <AppError />
   )
 }
 

@@ -6,7 +6,6 @@ import React from "react";
 
 function Footer() {
   const path = usePathname()
-  console.log(path);
   
   return (
     <Flex
