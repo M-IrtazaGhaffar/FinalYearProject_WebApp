@@ -1,8 +1,46 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Box, Flex, Heading, Input, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 
 function page() {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const sendMessage = async () => {
+    if (!input.trim() || loading) return;
+
+    const userMsg = { sender: "user", text: input };
+    setMessages((prev) => [...prev, userMsg]);
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://13.203.196.191:8000/api/chatbot/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: input }),
+      });
+
+      const data = await res.json();
+      const botMsg = {
+        sender: "bot",
+        text: data?.data?.solution || "No response from chatbot.",
+      };
+
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "Something went wrong. Please try again." },
+      ]);
+    }
+
+    setInput("");
+    setLoading(false);
+  };
+
   return (
     <Box px={4} pb={12}>
       <Flex alignItems={"center"} gap={2}>
@@ -26,7 +64,6 @@ function page() {
         chatbot.
       </Text>
       <Flex
-
         py={4}
         wrap={"wrap"}
         justifyContent={"center"}
@@ -40,96 +77,32 @@ function page() {
           justifyContent={"space-between"}
           pb={16}
         >
-          <Box
-            p={4}
-            bg={"gray.100"}
-            color={"black"}
-            border={"1px solid"}
-            borderColor={"gray.200"}
-            w={"90%"}
-            borderTopLeftRadius={15}
-            borderTopRightRadius={15}
-            borderBottomLeftRadius={15}
-            alignSelf={"flex-end"}
-            className="shadow-customShadow"
-          >
-            <Text fontSize={"xs"} fontWeight={"thin"} textAlign={"right"}>
-              User (You)
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-              minima.
-            </Text>
-          </Box>
-          <Box
-            p={4}
-            bg={"#137A6D"}
-            color={"white"}
-            border={"1px solid"}
-            borderColor={"gray.200"}
-            w={"90%"}
-            borderTopLeftRadius={15}
-            borderTopRightRadius={15}
-            borderBottomRightRadius={15}
-            className="shadow-customShadow"
-          >
-            <Text fontSize={"xs"} fontWeight={"thin"}>
-              Chatbot
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              dolore ipsam maxime? Exercitationem quam molestiae nobis eligendi
-              ullam aliquid, consequatur velit, iste eos iure quod quia
-              voluptatibus aut vero qui debitis fugiat eveniet ratione
-              cupiditate iusto delectus est harum fuga quasi? Magnam laborum
-              architecto sunt saepe eaque itaque a repellendus.
-            </Text>
-          </Box>
-          <Box
-            p={4}
-            bg={"gray.100"}
-            color={"black"}
-            border={"1px solid"}
-            borderColor={"gray.200"}
-            w={"90%"}
-            borderTopLeftRadius={15}
-            borderTopRightRadius={15}
-            borderBottomLeftRadius={15}
-            alignSelf={"flex-end"}
-            className="shadow-customShadow"
-          >
-            <Text fontSize={"xs"} fontWeight={"thin"} textAlign={"right"}>
-              User (You)
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-              minima.
-            </Text>
-          </Box>
-          <Box
-            p={4}
-            bg={"#137A6D"}
-            color={"white"}
-            border={"1px solid"}
-            borderColor={"gray.200"}
-            w={"90%"}
-            borderTopLeftRadius={15}
-            borderTopRightRadius={15}
-            borderBottomRightRadius={15}
-            className="shadow-customShadow"
-          >
-            <Text fontSize={"xs"} fontWeight={"thin"}>
-              Chatbot
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              dolore ipsam maxime? Exercitationem quam molestiae nobis eligendi
-              ullam aliquid, consequatur velit, iste eos iure quod quia
-              voluptatibus aut vero qui debitis fugiat eveniet ratione
-              cupiditate iusto delectus est harum fuga quasi? Magnam laborum
-              architecto sunt saepe eaque itaque a repellendus.
-            </Text>
-          </Box>
+          {messages.map((msg, index) => (
+            <Box
+              key={index}
+              p={4}
+              bg={msg.sender === "user" ? "gray.100" : "#137A6D"}
+              color={msg.sender === "user" ? "black" : "white"}
+              border={"1px solid"}
+              borderColor={"gray.200"}
+              w={"90%"}
+              borderTopLeftRadius={15}
+              borderTopRightRadius={15}
+              borderBottomLeftRadius={msg.sender === "user" ? 15 : 0}
+              borderBottomRightRadius={msg.sender === "user" ? 0 : 15}
+              alignSelf={msg.sender === "user" ? "flex-end" : "flex-start"}
+              className="shadow-customShadow"
+            >
+              <Text
+                fontSize={"xs"}
+                fontWeight={"thin"}
+                textAlign={msg.sender === "user" ? "right" : "left"}
+              >
+                {msg.sender === "user" ? "User (You)" : "Chatbot"}
+              </Text>
+              <Text>{msg.text}</Text>
+            </Box>
+          ))}
         </Flex>
         <Flex
           gap={2}
@@ -138,10 +111,10 @@ function page() {
           justifyContent={"center"}
           alignItems={"center"}
           position={"fixed"}
-          bottom={'60px'}
-          bg={'white'}
+          bottom={"60px"}
+          bg={"white"}
           p={2}
-          borderRadius={'xl'}
+          borderRadius={"xl"}
         >
           <Input
             p={4}
@@ -150,9 +123,17 @@ function page() {
             borderColor={"gray.200"}
             placeholder={"Type your query here..."}
             w={"85vw"}
+            value={input}
+            disabled={loading}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           />
-          <Button variant="surface" p={4}>
-            Send
+          <Button
+            variant="surface"
+            p={4}
+            onClick={sendMessage}
+          >
+            {loading ? "Sending..." : "Send"}
           </Button>
         </Flex>
       </Flex>
