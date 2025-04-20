@@ -56,7 +56,7 @@ export default function page() {
       setLoading(true);
       try {
         const res = await axios.post(
-          "https://advancedpos.duckdns.org//api/searchnearby",
+          "https://advancedpos.duckdns.org/api/searchnearby",
           {
             productName: query,
             latitude: location.latitude,

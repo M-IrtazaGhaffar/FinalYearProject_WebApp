@@ -5,13 +5,15 @@ import AppInfoCard from "./AppInfoCard";
 import AppBlogCard from "./AppBlogCard";
 
 async function AppHomeFetch() {
-  const res = await fetch("https://advancedpos.duckdns.org//api/home", {
+  const res = await fetch("https://advancedpos.duckdns.org/api/home", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
   });
   const data = await res.json();
+  console.log(data);
+  
 
   return (
     <Box className="space-y-3 pt-3">

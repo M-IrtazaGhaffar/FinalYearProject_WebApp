@@ -9,7 +9,7 @@ async function page({ params }) {
   const p = await params;
 
   const res = await fetch(
-    "https://advancedpos.duckdns.org//api/organization/getbyid",
+    "https://advancedpos.duckdns.org/api/organization/getbyid",
     {
       method: "POST",
       headers: {

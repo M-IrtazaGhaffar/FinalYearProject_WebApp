@@ -7,7 +7,7 @@ import React from "react";
 async function page({ params }) {
   const p = await params;
 
-  const res = await fetch("https://advancedpos.duckdns.org//api/blog/getbyid", {
+  const res = await fetch("https://advancedpos.duckdns.org/api/blog/getbyid", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
