@@ -19,13 +19,15 @@ function Search() {
       mx={3}
       display="flex"
       gap={3}
+      maxWidth={"50%"}
       alignItems="center"
       borderWidth="1px"
       borderColor="gray.300"
       borderRadius="md"
     >
       <Input
-        placeholder="Search Products, Blogs, Org. etc"
+        // placeholder="Search Products, Blogs, Org. etc"
+        placeholder="Search here..."
         _focus={{ outline: "none" }}
         onChange={(e) => setQuery(e.target.value)}
         value={Query}

@@ -1,5 +1,6 @@
 import AppProductCard from "@/components/app/AppProductCard";
 import AppShowHeadBox from "@/components/app/AppShowHeadBox";
+import SearchNearby from "@/components/app/SearchNearby";
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 
@@ -30,6 +31,8 @@ async function page() {
         }
         detail={"Here are the medicines available in our registered stores."}
       />
+      <SearchNearby />
+      <hr />
       <Flex
         py={4}
         wrap={"wrap"}

@@ -1,17 +1,17 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import CurrentLocation from "./CurrentLocation";
-import SearchNearby from "./SearchNearby";
 import AppHomeCards from "./AppHomeCards";
 import WelcomeLine from "./AppWelcome";
 import AppHomeFetch from "./AppHomeFetch";
+import AppDate from "./AppDate";
 
 function Home() {
   return (
     <Box px={4} pb={16}>
       <WelcomeLine />
+      <AppDate />
       <CurrentLocation />
-      <SearchNearby />
       <AppHomeCards />
       <AppHomeFetch />
     </Box>

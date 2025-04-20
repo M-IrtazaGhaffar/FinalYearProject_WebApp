@@ -76,7 +76,7 @@ function CurrentLocation() {
         <Text fontSize={"xs"} color={"gray.500"}>
           Your Current Location
         </Text>
-        <Heading fontSize="lg" color={"#199A8E"}>
+        <Heading fontSize="lg" fontWeight={"semibold"} mt={1}>
           {area ? area.charAt(0).toUpperCase() + area.slice(1) : ""}
         </Heading>
       </Card.Header>
@@ -90,7 +90,21 @@ function CurrentLocation() {
           {latitude}
         </Text>
       </Card.Body>
-      <AppMapBox latitude={latitude} longitude={longitude} />
+      <Box p={3}>
+        {error && (
+          <Text
+            position="absolute"
+            top="50%"
+            left="50%"
+            transform="translate(-50%, -50%)"
+            fontSize={"sm"}
+            color={"red.500"}
+          >
+            {error}
+          </Text>
+        )}
+        <AppMapBox latitude={latitude} longitude={longitude} />
+      </Box>
     </Card.Root>
   );
 }

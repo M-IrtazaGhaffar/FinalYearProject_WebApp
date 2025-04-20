@@ -1,6 +1,5 @@
 "use client";
 
-import Search from "@/components/app/Search";
 import { Text, Flex, Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
@@ -41,8 +40,6 @@ export default function Page() {
 
   return (
     <Box>
-      <Search />
-
       <Text fontSize="md" fontWeight="thin" m={4}>
         Search Results for{" "}
         <Text as="span" fontSize="xl" fontWeight="normal">

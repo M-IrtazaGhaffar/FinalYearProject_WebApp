@@ -5,18 +5,27 @@ import React, { useState } from "react";
 
 function SearchNearby() {
   const [Query, setQuery] = useState("");
-    const router = useRouter();
-    const handleClick = () => {
-      if (!Query.trim()) return;
-  
-      // Push to /search?q=your_query
-      router.push(`/search/nearby?q=${encodeURIComponent(Query)}`);
-    };
+  const router = useRouter();
+  const handleClick = () => {
+    if (!Query.trim()) return;
+
+    // Push to /search?q=your_query
+    router.push(`/search/nearby?q=${encodeURIComponent(Query)}`);
+  };
   return (
-    <Box className="px-5 py-3 lg:p-10">
-      <Text fontSize={"xs"}>
-        Search Any Product Nearby
-      </Text>
+    <Box
+      className="p-5 my-3 rounded-3xl"
+      bgColor={"#199A8E"}
+      borderRadius={"md"}
+      display="flex"
+      alignItems={"center"}
+      flexWrap={"wrap"}
+      gap={3}
+      color={"white"}
+      justifyContent="space-between"
+      boxShadow="lg"
+    >
+      <Text>Want Your Any Desired Products Nearby?</Text>
       <Box
         flex={1}
         px={3}
@@ -24,15 +33,18 @@ function SearchNearby() {
         gap={3}
         alignItems="center"
         borderWidth="1px"
-        borderColor="gray.300" 
-        borderRadius="md" 
+        borderColor="gray.300"
+        borderRadius="md"
+        maxW={'500px'}
       >
         <Input
-          placeholder="Search Nearby Products" 
-          _focus={{ outline: "none" }} 
+          placeholder="Search here..."
+          _focus={{ outline: "none" }}
+          _placeholder={{ color: "white" }}
           onChange={(e) => setQuery(e.target.value)}
-        value={Query}
+          value={Query}
         />
+
         <Button colorScheme="blue">
           <svg
             xmlns="http://www.w3.org/2000/svg"
