@@ -8,7 +8,7 @@ import React from "react";
 async function page({ params }) {
   const p = await params;
 
-  const res = await fetch("http://13.203.196.191:8000/api/retailer/getbyid", {
+  const res = await fetch("https://13.203.196.191/api/retailer/getbyid", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

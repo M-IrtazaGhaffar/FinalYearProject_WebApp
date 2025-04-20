@@ -17,7 +17,7 @@ function page() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://13.203.196.191:8000/api/chatbot/create", {
+      const res = await fetch("https://13.203.196.191/api/chatbot/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: input }),
@@ -33,6 +33,8 @@ function page() {
 
       setMessages((prev) => [...prev, botMsg]);
     } catch (error) {
+      console.log(error);
+      
       setMessages((prev) => [
         ...prev,
         { sender: "bot", text: "Something went wrong. Please try again." },

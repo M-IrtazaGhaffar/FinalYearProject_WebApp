@@ -9,7 +9,7 @@ async function page({ params }) {
   const p = await params;
 
   const res = await fetch(
-    "http://13.203.196.191:8000/api/organization/getbyid",
+    "https://13.203.196.191/api/organization/getbyid",
     {
       method: "POST",
       headers: {

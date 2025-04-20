@@ -5,7 +5,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 
 async function page() {
-  const res = await fetch("http://13.203.196.191:8000/api/product/get", {
+  const res = await fetch("https://13.203.196.191/api/product/get", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

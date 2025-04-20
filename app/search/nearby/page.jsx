@@ -56,7 +56,7 @@ export default function page() {
       setLoading(true);
       try {
         const res = await axios.post(
-          "http://13.203.196.191:8000/api/searchnearby",
+          "https://13.203.196.191/api/searchnearby",
           {
             productName: query,
             latitude: location.latitude,

@@ -5,7 +5,7 @@ import React from "react";
 
 async function page() {
 
-  const res = await fetch("http://13.203.196.191:8000/api/organization/get", {
+  const res = await fetch("https://13.203.196.191/api/organization/get", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
