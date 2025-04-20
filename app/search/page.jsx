@@ -23,7 +23,7 @@ export default function Page() {
       setLoading(true);
 
       try {
-        const res = await axios.post("https://13.203.196.191/api/search", {
+        const res = await axios.post("https://advancedpos.duckdns.org//api/search", {
           query,
         });
         setSearchResults(res.data?.data);
