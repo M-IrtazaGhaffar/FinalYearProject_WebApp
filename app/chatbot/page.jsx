@@ -24,6 +24,8 @@ function page() {
       });
 
       const data = await res.json();
+      console.log(data?.data?.solution);
+      
       const botMsg = {
         sender: "bot",
         text: data?.data?.solution || "No response from chatbot.",
