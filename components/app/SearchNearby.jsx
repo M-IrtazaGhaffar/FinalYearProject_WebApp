@@ -23,7 +23,7 @@ function SearchNearby() {
       gap={3}
       color={"white"}
       justifyContent="space-between"
-      boxShadow="lg"
+      boxShadow="sm"
     >
       <Text>Want Your Any Desired Products Nearby?</Text>
       <Box

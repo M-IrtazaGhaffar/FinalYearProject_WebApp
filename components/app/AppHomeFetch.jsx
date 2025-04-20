@@ -12,8 +12,6 @@ async function AppHomeFetch() {
     },
   });
   const data = await res.json();
-  console.log(data);
-  
 
   return (
     <Box className="space-y-3 pt-3">
