@@ -1,66 +1,35 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Box, Card, Heading, Text } from "@chakra-ui/react";
+import React from "react";
+import { Box, Card, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import {
+  ProgressCircleRing,
+  ProgressCircleRoot,
+} from "@/components/ui/progress-circle";
 import AppMapBox from "./AppMapBox";
 import useCurrentLocation from "./useCurrentLocation";
 
 function CurrentLocation() {
-  // const [location, setLocation] = useState({
-  //   latitude: null,
-  //   longitude: null,
-  //   area: null,
-  //   error: null,
-  // });
+  const { area, error, latitude, longitude, loading } = useCurrentLocation();
 
-  // // Fetch the user's current location
-  // useEffect(() => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       async (position) => {
-  //         const { latitude, longitude } = position.coords;
-  //         setLocation((prev) => ({
-  //           ...prev,
-  //           latitude,
-  //           longitude,
-  //         }));
+  // if (!area) {
+  //   return null;
+  // }
 
-  //         // Fetch the area using reverse geocoding
-  //         try {
-  //           const response = await axios.get(
-  //             `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f4f1a9bdc0ee47a7a6da5124b3d5dcdb`
-  //           );
-  //           const area = response.data.results[0].formatted;
-  //           setLocation((prev) => ({
-  //             ...prev,
-  //             area,
-  //           }));
-  //         } catch (error) {
-  //           setLocation((prev) => ({
-  //             ...prev,
-  //             error: "Failed to fetch area information.",
-  //           }));
-  //         }
-  //       },
-  //       (error) => {
-  //         setLocation((prev) => ({
-  //           ...prev,
-  //           error: error.message,
-  //         }));
-  //       }
-  //     );
-  //   } else {
-  //     setLocation((prev) => ({
-  //       ...prev,
-  //       error: "Geolocation is not supported by this browser.",
-  //     }));
-  //   }
-  // }, []);
-
-  const { area, error, latitude, longitude } = useCurrentLocation();
-
-  if (!area) {
-    return null;
+  if (loading) {
+    return (
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        minH="50vh"
+        w={"100%"}
+        color={"#199A8E"}
+      >
+        <ProgressCircleRoot value={null} size="sm" color={"#199A8E"}>
+          <ProgressCircleRing cap="round" color={"#199A8E"} />
+        </ProgressCircleRoot>
+      </Flex>
+    );
   }
 
   return (
