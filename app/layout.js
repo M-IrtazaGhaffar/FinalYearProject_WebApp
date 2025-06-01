@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={`${kanit.variable} antialiased`}
         style={{ backgroundColor: "white", color: "black" }}
       >
