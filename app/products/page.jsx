@@ -45,7 +45,7 @@ async function page() {
             <AppProductCard
               name={product.name}
               formula={product.formula}
-              organization={product.retailer.name}
+              organization={product.organization.name}
               link={`/products/${product.id}`}
               key={index}
             />

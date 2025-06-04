@@ -96,25 +96,25 @@ async function page({ params }) {
           <Text fontSize={"xs"} fontWeight={"thin"}>
             Organization Name
           </Text>
-          <Text>{data.data.retailer.name}</Text>
+          <Text>{data.data.organization.name}</Text>
         </Box>
         <Box gap={4}>
           <Text fontSize={"xs"} fontWeight={"thin"}>
             Organization Email
           </Text>
-          <Text>{data.data.retailer.email}</Text>
+          <Text>{data.data.organization.email}</Text>
         </Box>
         <Box gap={4}>
           <Text fontSize={"xs"} fontWeight={"thin"}>
             Organization Phone
           </Text>
-          <Text>{data.data.retailer.phone}</Text>
+          <Text>{data.data.organization.phone}</Text>
         </Box>
         <Box gap={4}>
           <Text fontSize={"xs"} fontWeight={"thin"}>
             Organization Address
           </Text>
-          <Text>{data.data.retailer.address}</Text>
+          <Text>{data.data.organization.address}</Text>
         </Box>
       </Flex>
     );
