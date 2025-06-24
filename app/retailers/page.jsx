@@ -1,6 +1,6 @@
 import AppInfoCard from "@/components/app/AppInfoCard";
 import AppShowHeadBox from "@/components/app/AppShowHeadBox";
-import { Box, Card, Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 
 async function page() {
@@ -9,8 +9,10 @@ async function page() {
     headers: {
       "Content-Type": "application/json",
     },
+    cache: "no-cache"
   });
   const data = await res.json();
+  
   
   return (
     <Box px={4} pb={16}>
