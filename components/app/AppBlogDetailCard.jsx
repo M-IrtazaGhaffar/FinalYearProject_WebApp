@@ -14,58 +14,42 @@ function AppBlogDetailCard({
   return (
     <Flex gap={4} flexDirection={"column"}>
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Title
-        </Text>
-        <Text>{title}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Title</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{title}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Description
-        </Text>
-        <Text>{description}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Description</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{description}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Details
-        </Text>
-        <Text>{details}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Details</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{details}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Organization Name
-        </Text>
-        <Text>{organization}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Organization Name</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{organization}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Organization Email
-        </Text>
-        <Text>{email}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Organization Email</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{email}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Organization Phone
-        </Text>
-        <Text>{phone}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Organization Phone</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{phone}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Organization Address
-        </Text>
-        <Text>{address}</Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Organization Address</Text>
+        <Text whiteSpace="pre-wrap" wordBreak="break-word">{address}</Text>
       </Flex>
       <hr />
       <Flex gap={2} flexDirection={"column"}>
-        <Text fontSize={"xs"} fontWeight={"thin"}>
-          Date Updated
-        </Text>
+        <Text fontSize={"xs"} fontWeight={"thin"}>Date Updated</Text>
         <Text>{date.split("T")[0]}</Text>
       </Flex>
     </Flex>
